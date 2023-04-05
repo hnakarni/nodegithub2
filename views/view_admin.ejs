@@ -1,0 +1,118 @@
+<%- include('header') %>
+  <!-- ============================================================== -->
+  <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Page wrapper  -->
+  <!-- ============================================================== -->
+  <div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+      <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+          <h4 class="page-title">Tables</h4>
+          <div class="ms-auto text-end">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Library
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title mb-0">Static Table</h5>
+            </div>
+            <form>
+                <input type="text" name="search">
+                <input type="submit" value="searching">
+            </form>
+
+
+            <% if(flash.success && flash.success.length >0){ %>
+              <div class="alert alert-success"><%= flash.success %></div>
+          <% } %>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">No</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">city</th>
+                  <th scope="col">Action</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% var no =1; for(var ad of adminRecord) { %>
+                <tr>
+                  <th scope="row"><%= no++ %></th>
+                  <td><a href="/showfull/<%= ad.id %>"><%= ad.name %></a></td>
+                  <td><%= ad.email %></td>
+                  <td><%= ad.city %></td>
+                  
+                  <td><a href="/deleteAdmin/<%= ad.id %>"><i class="fa fa-trash"></i></a> || <i class="fa fa-edit"></i></td>
+               
+                </tr>
+
+                <% } %>
+
+                <tr>
+                  <td colspan="5">
+                    <!-- <% for(var j=1; j<=countRecord; j++){ %>
+                    <a href="?page=<%= j %>&search=<%= searchData %>"><%= j %></a>
+                    <% } %> -->
+
+                    <a href="?page=<%= prev %>&search=<%= searchData %>">Prev</a>
+                    <a href="?page=<%= currentPage %>&search=<%= searchData %>"><%= currentPage %></a>
+                  
+                    <a href="?page=<%= next %>&search=<%= searchData %>">Next</a>
+                  </td>
+                </tr>
+
+                
+              
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+      <!-- ============================================================== -->
+      <!-- End PAge Content -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Right sidebar -->
+      <!-- ============================================================== -->
+      <!-- .right-sidebar -->
+      <!-- ============================================================== -->
+      <!-- End Right sidebar -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+
+    <%- include('footer') %>
