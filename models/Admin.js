@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const multer = require('multer');
 
-const AVATAR_PATH = ('/uploads/Admin');
+const AVATAR_PATH = ('/assets/images');
 
 const path = require('path');
 

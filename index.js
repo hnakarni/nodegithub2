@@ -40,7 +40,7 @@ app.use(express.static('assets'));
 
 app.use(express.urlencoded());
 
-app.use('/uploads', express.static(path.join(__dirname+'/uploads')));
+app.use(express.static(path.join(__dirname,'uploads')));
 
 app.use(session({
     name : "Harsh",
