@@ -8,7 +8,19 @@ const app = express();
 
 const path = require('path');
 
-const db = require('./config/mongoose');
+// const db = require('./config/mongoose');
+
+const mongoose = require('mongoose');
+
+mongoose.connect("mongodb+srv://piyushNakarani:Rwn2faculty@cluster0.lefjm.mongodb.net/YCPiyushRecord",{
+    useNewUrlParser : true,
+    useUnifiedTopology : true
+}).then(()=>{
+    console.log("db connected");
+})
+.catch(err=>{
+    console.log(err);
+})
 
 const session = require('express-session');
 const passport = require('passport');
@@ -18,8 +30,6 @@ const passportJWT = require('./config/passport-jwt-strategy');
 const flash = require('connect-flash');
 const customM = require('./config/middleware');
 const cors = require('cors');
-
-
 
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
@@ -53,11 +63,7 @@ app.use(cors({
     origin: '*'
 }));
 
-
 app.use('/',require('./routes'));
-
-
-
 
 app.listen(port, function(err){
     if(err){
