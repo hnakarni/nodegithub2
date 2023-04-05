@@ -58,6 +58,7 @@
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
                   <th scope="col">city</th>
+                  <th scope="col">Image</th>
                   <th scope="col">Action</th>
 
                 </tr>
@@ -69,6 +70,7 @@
                   <td><a href="/showfull/<%= ad.id %>"><%= ad.name %></a></td>
                   <td><%= ad.email %></td>
                   <td><%= ad.city %></td>
+                  <td><img src="<%= ad.avatar %>" height="100"/></td>
                   
                   <td><a href="/deleteAdmin/<%= ad.id %>"><i class="fa fa-trash"></i></a> || <i class="fa fa-edit"></i></td>
                
